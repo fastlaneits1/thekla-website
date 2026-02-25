@@ -4,22 +4,50 @@
   <meta charset="UTF-8" />
   <title>THEKLA – Elegant & Luxury Jewelry</title>
   <link rel="stylesheet" href="style.css" />
+    <!-- FAVICON (browser tab icon) -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Optional but recommended -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 </head>
+
 <body>
   <div class="page-wrapper">
     <div class="glow"></div>
     <div class="star">✦</div>
 
+    <!-- NAVBAR -->
     <header class="navbar">
-      <div class="brand">THEKLA</div>
+      <a href="index.html" class="brand">THEKLA</a>
+      
+      <!-- MOBILE HAMBURGER -->
+      <button class="menu-toggle" type="button" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <!-- DESKTOP NAV -->
       <nav class="nav-links">
-        <a href="collection.html">Collection</a>
+        <a href="#discover" class="active">Collection</a>
         <a href="about.html">About</a>
         <a href="stores.html">Stores</a>
         <a href="contact.html">Contact</a>
       </nav>
     </header>
 
+    <!-- MOBILE MENU OVERLAY -->
+    <nav class="mobile-menu">
+      <div class="mobile-menu-links">
+        <a href="#discover">Collection</a>
+        <a href="about.html">About</a>
+        <a href="stores.html">Stores</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
     <main class="hero">
       <section class="hero-media">
         <div class="hero-media-inner">
@@ -29,7 +57,7 @@
 
       <section class="hero-content">
         <div class="hero-eyebrow">Remarkable jewelry</div>
-        <h1 class="hero-title">Elegant &amp;<br />Luxury</h1>
+        <h1 class="hero-title">Elegant &<br/>Luxury</h1>
         <p class="hero-sub">
           Remarkable jewelry for the modern woman, crafted with sculptural lines,
           warm tones and luminous finishes.
@@ -37,19 +65,103 @@
         <a href="collection.html" class="hero-cta">Shop Collection</a>
 
         <div class="hero-line">
-          <!-- simple wavy line using SVG -->
           <svg viewBox="0 0 400 80" preserveAspectRatio="none">
-            <path d="M0,60 Q100,10 200,40 T400,50"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.4)"
+            <path d="M0,60 Q100,10 200,40 T400,50" 
+                  fill="none" 
+                  stroke="rgba(255,255,255,0.4)" 
                   stroke-width="1.2" />
           </svg>
-          <div class="scroll-arrow">
+          <button class="scroll-arrow" type="button" data-scroll-target="#discover">
             <span></span>
-          </div>
+          </button>
         </div>
       </section>
     </main>
+
+    <!-- DISCOVER SECTION (SCROLL TARGET) -->
+    <section id="discover" class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Signature Collection</h2>
+        <p class="section-subtitle">
+          Sculptural designs crafted for the modern woman with luminous gold finishes
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="product-card">
+          <div class="product-image"></div>
+          <h3 class="product-name">Solstice Ring</h3>
+          <div class="product-meta">Brushed gold vermeil · AU$180</div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image"></div>
+          <h3 class="product-name">Aura Hoops</h3>
+          <div class="product-meta">Hand-polished silver · AU$220</div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image"></div>
+          <h3 class="product-name">Orbit Cuff</h3>
+          <div class="product-meta">14k gold plated · AU$260</div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image"></div>
+          <h3 class="product-name">Nova Pendant</h3>
+          <div class="product-meta">Pearl & gold · AU$240</div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: 60px;">
+        <a href="collection.html" class="hero-cta" style="font-size: 16px; padding: 16px 40px;">View Full Collection</a>
+      </div>
+    </section>
   </div>
+
+  <!-- PERFECT JS -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // HAMBURGER MENU
+    const toggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (toggle && mobileMenu) {
+      toggle.addEventListener('click', function () {
+        toggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+      
+      document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', function () {
+          toggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+      
+      mobileMenu.addEventListener('click', function (e) {
+        if (e.target === mobileMenu) {
+          toggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
+    }
+    
+    // SCROLL ARROW
+    const arrow = document.querySelector('.scroll-arrow');
+    if (arrow) {
+      arrow.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = arrow.getAttribute('data-scroll-target') || '#discover';
+        const target = document.querySelector(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+  });
+  </script>
 </body>
 </html>
