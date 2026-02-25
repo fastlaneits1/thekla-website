@@ -1,4 +1,6 @@
-/* Google Fonts example – adjust to match Figma */
+/* ========== THEKLA JEWELRY - COMPLETE CSS ========== */
+/* Mobile hamburger + desktop nav + responsive design */
+
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap");
 
 :root {
@@ -25,9 +27,10 @@ body {
     sans-serif;
   background: var(--bg-body);
   color: var(--text-main);
+  overflow-x: hidden;
 }
 
-/* Layout */
+/* ========== LAYOUT ========== */
 
 .page-wrapper {
   max-width: 1200px;
@@ -38,12 +41,14 @@ body {
   position: relative;
 }
 
-/* Top nav */
+/* ========== MOBILE HAMBURGER + DESKTOP NAV ========== */
+
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 24px 40px;
+  gap: 40px;
   position: relative;
   z-index: 3;
 }
@@ -52,13 +57,17 @@ body {
   font-family: "Playfair Display", serif;
   letter-spacing: 0.18em;
   font-size: 18px;
+  text-decoration: none;
+  color: var(--text-main);
 }
 
+/* Desktop nav */
 .nav-links {
   display: flex;
   gap: 32px;
   font-size: 13px;
   text-transform: uppercase;
+  margin-left: auto;
 }
 
 .nav-links a {
@@ -73,7 +82,74 @@ body {
   color: var(--text-main);
 }
 
-/* Hero */
+/* Mobile hamburger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 1001;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-main);
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* X animation */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-3px, 3px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-2px, -2px);
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+  z-index: 1000;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobile-menu-links a {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 12px;
+}
+
+/* ========== HERO SECTION ========== */
 
 .hero {
   display: grid;
@@ -84,12 +160,9 @@ body {
 }
 
 /* Left / image block */
-
 .hero-media {
   position: relative;
   overflow: hidden;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
 }
 
 .hero-media-inner {
@@ -98,7 +171,6 @@ body {
   overflow: hidden;
 }
 
-/* Big curved shape */
 .hero-media-inner::before {
   content: "";
   position: absolute;
@@ -113,14 +185,13 @@ body {
   position: relative;
   z-index: 1;
   height: 100%;
-  background-image: url("Thekla.jpg"); /* your attached image */
+  background-image: url("images/Thekla.jpg");
   background-size: cover;
   background-position: center;
   clip-path: inset(40px 0 40px 40px round 0 0 0 0);
 }
 
 /* Right / content */
-
 .hero-content {
   position: relative;
   padding: 40px 0 24px 0;
@@ -165,8 +236,6 @@ body {
 .hero-cta:hover {
   filter: brightness(0.95);
 }
-
-/* Curved line & scroll arrow */
 
 .hero-line {
   margin-top: 40px;
@@ -221,7 +290,7 @@ body {
   font-size: 42px;
 }
 
-/* Inner content pages */
+/* ========== INNER PAGES ========== */
 
 .section {
   padding: 24px 40px 40px 40px;
@@ -242,20 +311,23 @@ body {
   color: var(--text-muted);
 }
 
-/* Simple grid */
-
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
 }
 
-/* Product cards for collection */
-
+/* Product cards */
 .product-card {
   background: #151515;
   border-radius: 16px;
   padding: 18px;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
 }
 
 .product-image {
@@ -275,8 +347,7 @@ body {
   color: var(--text-muted);
 }
 
-/* Simple content blocks */
-
+/* Content blocks */
 .text-block {
   max-width: 640px;
   font-size: 15px;
@@ -299,7 +370,6 @@ body {
 }
 
 /* Contact form */
-
 .contact-form {
   max-width: 520px;
   display: grid;
@@ -340,7 +410,7 @@ body {
   cursor: pointer;
 }
 
-/* Responsive */
+/* ========== RESPONSIVE ========== */
 
 @media (max-width: 900px) {
   .page-wrapper {
@@ -348,9 +418,24 @@ body {
     border-radius: 0;
   }
 
+  /* MOBILE NAV */
+  .navbar {
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .menu-toggle {
+    display: flex;  /* SHOW HAMBURGER */
+  }
+
+  .nav-links {
+    display: none;  /* HIDE DESKTOP NAV */
+  }
+
   .hero {
     grid-template-columns: 1fr;
     padding: 0 20px 20px 20px;
+    gap: 20px;
   }
 
   .hero-media-inner::before {
@@ -366,7 +451,22 @@ body {
     font-size: 40px;
   }
 
-  .navbar {
-    padding: 18px 20px;
+  .section {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 32px;
+  }
+  
+  .hero-cta {
+    padding: 12px 28px;
+    font-size: 12px;
   }
 }
