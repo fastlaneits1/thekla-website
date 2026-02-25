@@ -1,35 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Thekla - Contact</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>THEKLA – Contact</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="page-wrapper">
+    <header class="navbar">
+      <div class="brand">THEKLA</div>
+      <nav class="nav-links">
+        <a href="collection.html">Collection</a>
+        <a href="about.html">About</a>
+        <a href="stores.html">Stores</a>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-<div class="wrapper">
-    <div class="navbar">
-        <div class="logo">THEKLA</div>
-        <div class="nav-links">
-            <a href="index.html">HOME</a>
-            <a href="collection.html">COLLECTION</a>
-            <a href="about.html">ABOUT</a>
-            <a href="stores.html">STORES</a>
-        </div>
-    </div>
+    <main class="section">
+      <div class="section-header">
+        <h1 class="section-title">Contact &amp; Bespoke</h1>
+        <p class="section-subtitle">
+          For styling advice, bespoke projects or wholesale enquiries, share a few details below.
+        </p>
+      </div>
 
-    <div class="page-header">
-        <h1>Contact Us</h1>
-    </div>
-
-    <div class="contact-form">
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <textarea rows="5" placeholder="Your Message"></textarea>
-        <button>Send Message</button>
-    </div>
-</div>
-
+      <form class="contact-form">
+        <label>
+          Name
+          <input type="text" name="name" placeholder="Your full name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </label>
+        <label>
+          Topic
+          <input type="text" name="topic" placeholder="Order, styling, wholesale…" />
+        </label>
+        <label>
+          Message
+          <textarea name="message" placeholder="Tell us how we can help"></textarea>
+        </label>
+        <button type="submit" class="hero-cta">Send Message</button>
+      </form>
+    </main>
+  </div>
 </body>
 </html>

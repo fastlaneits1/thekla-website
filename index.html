@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Thekla - Home</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>THEKLA – Elegant & Luxury Jewelry</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="page-wrapper">
+    <div class="glow"></div>
+    <div class="star">✦</div>
 
-<div class="wrapper">
-    <div class="navbar">
-        <div class="logo">THEKLA</div>
-        <div class="nav-links">
-            <a href="collection.html">COLLECTION</a>
-            <a href="about.html">ABOUT</a>
-            <a href="stores.html">STORES</a>
-            <a href="contact.html">CONTACT</a>
+    <header class="navbar">
+      <div class="brand">THEKLA</div>
+      <nav class="nav-links">
+        <a href="collection.html">Collection</a>
+        <a href="about.html">About</a>
+        <a href="stores.html">Stores</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="hero-media">
+        <div class="hero-media-inner">
+          <div class="hero-image"></div>
         </div>
-    </div>
+      </section>
 
-    <div class="hero">
-        <div class="image-container">
-            <img src="Thekla.png" alt="Jewelry Model">
+      <section class="hero-content">
+        <div class="hero-eyebrow">Remarkable jewelry</div>
+        <h1 class="hero-title">Elegant &amp;<br />Luxury</h1>
+        <p class="hero-sub">
+          Remarkable jewelry for the modern woman, crafted with sculptural lines,
+          warm tones and luminous finishes.
+        </p>
+        <a href="collection.html" class="hero-cta">Shop Collection</a>
+
+        <div class="hero-line">
+          <!-- simple wavy line using SVG -->
+          <svg viewBox="0 0 400 80" preserveAspectRatio="none">
+            <path d="M0,60 Q100,10 200,40 T400,50"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.4)"
+                  stroke-width="1.2" />
+          </svg>
+          <div class="scroll-arrow">
+            <span></span>
+          </div>
         </div>
-
-        <div class="content">
-            <h1>Elegant &<br>Luxury</h1>
-            <p>Remarkable Jewelry for the modern women</p>
-            <a href="collection.html" class="cta-btn">SHOP COLLECTION</a>
-        </div>
-    </div>
-</div>
-
+      </section>
+    </main>
+  </div>
 </body>
 </html>
