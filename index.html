@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <title>THEKLA – Elegant & Luxury Jewelry</title>
   <link rel="stylesheet" href="style.css" />
-    <!-- FAVICON (browser tab icon) -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Optional but recommended -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <!-- FAVICON (browser tab icon) -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Optional but recommended -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 </head>
 
 <body>
@@ -80,40 +80,60 @@
 
     <!-- DISCOVER SECTION (SCROLL TARGET) -->
     <section id="discover" class="content-section">
-  <div class="section-header">
-    <h2 class="section-title">Signature Collection</h2>
-    <p class="section-subtitle">Handcrafted luxury jewelry</p>
-  </div>
+      <div class="section-header">
+        <h2 class="section-title">Signature Collection</h2>
+        <p class="section-subtitle">Handcrafted luxury jewelry</p>
+      </div>
 
-  <!-- 4 PRODUCT CARDS - IMAGES WILL LOAD -->
-  <div class="grid">
-    <article class="product-card">
-      <div class="product-image"></div> <!-- Gets product1.png -->
-      <h3>Solstice Ring</h3>
-      <div class="product-meta">AU$180</div>
-    </article>
+      <!-- 4 PRODUCT CARDS - IMAGES WILL LOAD -->
+      <div class="grid">
+        <article class="product-card">
+          <div class="product-image"></div> <!-- Gets Product1.png -->
+          <h3 class="product-name">Solstice Ring</h3>
+          <div class="product-meta">AU$180</div>
+        </article>
 
-    <article class="product-card">
-      <div class="product-image"></div> <!-- Gets product2.png -->
-      <h3>Aura Hoops</h3>
-      <div class="product-meta">AU$220</div>
-    </article>
+        <article class="product-card">
+          <div class="product-image"></div> <!-- Gets Product2.png -->
+          <h3 class="product-name">Aura Hoops</h3>
+          <div class="product-meta">AU$220</div>
+        </article>
 
-    <article class="product-card">
-      <div class="product-image"></div> <!-- Gets product3.jpg -->
-      <h3>Orbit Cuff</h3>
-      <div class="product-meta">AU$260</div>
-    </article>
+        <article class="product-card">
+          <div class="product-image"></div> <!-- Gets Product3.jpg -->
+          <h3 class="product-name">Orbit Cuff</h3>
+          <div class="product-meta">AU$260</div>
+        </article>
 
-    <article class="product-card">
-      <div class="product-image"></div> <!-- Gets product4.jpg -->
-      <h3>Nova Pendant</h3>
-      <div class="product-meta">AU$240</div>
-    </article>
-  </div>
-</section>
+        <article class="product-card">
+          <div class="product-image"></div> <!-- Gets Product4.jpg -->
+          <h3 class="product-name">Nova Pendant</h3>
+          <div class="product-meta">AU$240</div>
+        </article>
+      </div>
+    </section>
 
-  </div>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-logo">THEKLA</span>
+          <p class="footer-tagline">Remarkable jewelry for the modern woman.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="collection.html">Collection</a>
+          <a href="about.html">About</a>
+          <a href="stores.html">Stores</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-meta">
+          <p>© <span id="year"></span> THEKLA. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div> <!-- end .page-wrapper -->
 
   <!-- PERFECT JS -->
   <script>
@@ -157,6 +177,10 @@
         }
       });
     }
+
+    // FOOTER YEAR
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
   });
   </script>
 </body>
