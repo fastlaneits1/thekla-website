@@ -388,6 +388,39 @@ body {
   background-image: url('images/Product4.jpg');
 }
 
+.grid .product-card:nth-child(5) .product-image {
+  background-image: url('images/Product5.png');
+}
+
+.grid .product-card:nth-child(6) .product-image {
+  background-image: url('images/Product6.png');
+}
+
+.grid .product-card:nth-child(7) .product-image {
+  background-image: url('images/Product7.png');
+}
+
+.grid .product-card:nth-child(8) .product-image {
+  background-image: url('images/Product8.png');
+}
+
+.grid .product-card:nth-child(9) .product-image {
+  background-image: url('images/Product9.png');
+}
+
+.grid .product-card:nth-child(10) .product-image {
+  background-image: url('images/Product10.png');
+}
+
+.grid .product-card:nth-child(11) .product-image {
+  background-image: url('images/Product11.png');
+}
+
+.grid .product-card:nth-child(12) .product-image {
+  background-image: url('images/Product12.png');
+}
+
+
 /* Fallback styling */
 .product-image {
   background-size: cover;

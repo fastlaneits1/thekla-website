@@ -2,62 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>THEKLA – Contact</title>
+  <title>Thekla Jewelry – Stores & Contact</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- FAVICON (browser tab icon) -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <!-- Optional but recommended -->
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 </head>
 <body>
   <div class="page-wrapper">
-    <header class="navbar">
-      <a href="index.html" class="brand">THEKLA</a> <!-- NOW LINKS TO HOME -->
-      <nav class="nav-links">
-        <a href="collection.html">Collection</a>
-        <a href="about.html">About</a>
-        <a href="stores.html">Stores</a>
-        <a class="active" href="contact.html">Contact</a>
+    <!-- NAVBAR -->
+    <header class="hero-wrapper">
+      <nav class="navbar">
+        <a href="index.html" class="brand">THEKLA</a>
+
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="shop.html">Shop</a>
+          <a href="contact.html" class="active">Stores & Contact</a>
+        </div>
       </nav>
     </header>
 
-    <main class="section">
-      <div class="section-header">
-        <h1 class="section-title">Contact &amp; Bespoke</h1>
-        <p class="section-subtitle">
-          For styling advice, bespoke projects or wholesale enquiries, share a few details below.
-        </p>
-        <p class="section-subtitle" style="margin-top: 12px; font-size: 14px;">
-          Prefer to call? Reach us on 
-          <a href="tel:+61484330205" style="color: inherit; text-decoration: underline;">
-            +61&nbsp;484&nbsp;330&nbsp;205
-          </a>
-          during business hours.
-        </p>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Stores & Contact</a>
       </div>
+    </div>
 
-      <form class="contact-form">
-        <label>
-          Name
-          <input type="text" name="name" placeholder="Your full name" required />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" placeholder="you@example.com" required />
-        </label>
-        <label>
-          Topic
-          <input type="text" name="topic" placeholder="Order, styling, wholesale…" />
-        </label>
-        <label>
-          Message
-          <textarea name="message" placeholder="Tell us how we can help"></textarea>
-        </label>
-        <button type="submit" class="hero-cta">Send Message</button>
-      </form>
-    </main>
+    <main>
+      <!-- STORES SECTION -->
+      <section class="content-section">
+        <div class="section-header">
+          <h1 class="section-title">Our Stores</h1>
+          <p class="section-subtitle">
+            Visit us in person to experience Thekla Jewelry up close, try on pieces, and receive personal styling advice.
+          </p>
+        </div>
+
+        <div class="info-list">
+  <div>
+    <h3 class="info-item-title">Online Store</h3>
+    <p class="product-meta">
+      Shop 24/7 at theklajewelry.com<br />
+      Worldwide shipping available<br />
+      Support: hello@theklajewelry.com
+    </p>
   </div>
+
+  <div>
+    <h3 class="info-item-title">Thekla – Sydney Boutique</h3>
+    <p class="product-meta">
+      45 Oxford Street, Paddington NSW 2021<br />
+      Mon–Sat: 10am – 5:30pm, Sun: 11am – 4pm<br />
+      Phone: (02) 8000 0000
+    </p>
+  </div>
+</div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Contact Us</h2>
+          <p class="section-subtitle">
+            Have a question about sizing, orders, or bespoke pieces? Send us a message and we’ll get back to you within one business day.
+          </p>
+        </div>
+
+        <form class="contact-form">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your full name" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+
+          <label>
+            Subject
+            <input type="text" name="subject" placeholder="Order enquiry, sizing, custom piece..." />
+          </label>
+
+          <label>
+            Message
+            <textarea name="message" placeholder="Tell us how we can help" required></textarea>
+          </label>
+
+          <button type="submit" class="hero-cta">
+            Send Message
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">THEKLA</div>
+          <p class="footer-tagline">Everyday luxury, thoughtfully crafted.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="shop.html">Shop</a>
+          <a href="contact.html">Stores & Contact</a>
+        </div>
+
+        <div class="footer-meta">
+          <p>© <span id="year"></span> Thekla Jewelry. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        menu.classList.toggle('active');
+      });
+    }
+  </script>
 </body>
 </html>
