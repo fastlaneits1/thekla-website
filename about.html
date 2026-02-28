@@ -5,24 +5,55 @@
   <title>THEKLA – About</title>
   <link rel="stylesheet" href="style.css" />
   <!-- FAVICON (browser tab icon) -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <!-- Optional but recommended -->
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 </head>
 <body>
   <div class="page-wrapper">
-    <!-- SAME NAV AS INDEX -->
-    <header class="navbar">
-      <a href="index.html" class="brand">THEKLA</a>
-      <nav class="nav-links">
-        <a href="collection.html">Collection</a>
-        <a class="active" href="about.html">About</a>
-        <a href="shop.html">Shop</a>
-        <a href="contact.html">Stores & Contact</a>
+    <!-- FIXED NAVBAR (same as contact) -->
+    <header class="hero-wrapper">
+      <nav class="navbar">
+        <a href="index.html" class="brand">THEKLA</a>
+
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html" class="active">About</a>
+          <a href="shop.html">Shop</a>
+          <a href="contact.html">Stores & Contact</a>
+        </div>
       </nav>
     </header>
+
+    <!-- MOBILE MENU (now added) -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Stores & Contact</a>
+      </div>
+    </div>
+
+    <!-- ANNOUNCEMENT STRIP -->
+    <div class="announcement-bar">
+      <div class="announcement-track">
+        <span>Free Shipping Over $240 For Members</span>
+        <span>New Collection Dropping Soon</span>
+        <span>Complimentary Gift Wrapping</span>
+        <span>Free Shipping Over $240 For Members</span>
+        <span>New Collection Dropping Soon</span>
+        <span>Local Pickup Available</span>
+      </div>
+    </div>
 
     <!-- PAGE CONTENT -->
     <main class="section">
@@ -62,7 +93,7 @@
       </div>
     </main>
 
-    <!-- FOOTER (OUTSIDE MAIN, LIKE INDEX) -->
+    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-brand">
@@ -71,7 +102,7 @@
         </div>
 
         <div class="footer-links">
-          <a href="collection.html">Collection</a>
+          <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="shop.html">Shop</a>
           <a href="contact.html">Stores & Contact</a>
@@ -84,12 +115,19 @@
     </footer>
   </div>
 
-  <!-- SIMPLE FOOTER YEAR SCRIPT -->
+  <!-- FIXED JS (same as contact) -->
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
-  });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        menu.classList.toggle('active');
+      });
+    }
   </script>
 </body>
 </html>
