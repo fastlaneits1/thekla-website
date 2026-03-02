@@ -171,7 +171,7 @@ if (toggle && menu) {
   });
 }
 
-/* Clean Contact Form AJAX (No confirm popup) */
+/* Fixed Contact Form AJAX */
 const form = document.querySelector(".contact-form");
 const successMessage = document.getElementById("successMessage");
 const submitBtn = document.getElementById("submitBtn");
@@ -179,7 +179,7 @@ const submitBtn = document.getElementById("submitBtn");
 successMessage.style.display = "none";
 
 form.addEventListener("submit", async function(event) {
-  event.preventDefault(); // IMPORTANT: stop normal submit
+  event.preventDefault();
 
   submitBtn.disabled = true;
   submitBtn.textContent = "Sending...";
@@ -193,6 +193,19 @@ form.addEventListener("submit", async function(event) {
       headers: { 'Accept': 'application/json' }
     });
 
+    console.log("Status:", response.status); // Debug: shows 200
+
+    // Handle BOTH JSON and plain text responses
+    let result;
+    try {
+      result = await response.json();
+    } catch {
+      // Plain text response (like your screenshot)
+      const text = await response.text();
+      console.log("Text response:", text);
+      result = { ok: response.ok };
+    }
+
     if (response.ok) {
       form.reset();
       successMessage.style.display = "block";
@@ -203,17 +216,17 @@ form.addEventListener("submit", async function(event) {
       }, 50);
       submitBtn.textContent = "Sent ✓";
     } else {
-      throw new Error("Submission failed");
+      throw new Error(`Status ${response.status}`);
     }
-
   } catch (error) {
-    console.error(error);
-    alert("Something went wrong. Please try again later.");
+    console.error("Error:", error);
+    alert("Submission issue. Check console or email hello@theklajewelry.com");
     submitBtn.disabled = false;
     submitBtn.textContent = "Send Message";
   }
 });
 </script>
+
 
 
 </body>
