@@ -179,7 +179,7 @@ const submitBtn = document.getElementById("submitBtn");
 successMessage.style.display = "none";
 
 form.addEventListener("submit", async function(event) {
-  event.preventDefault();
+  // event.preventDefault(); // Commented
 
   submitBtn.disabled = true;
   submitBtn.textContent = "Sending...";
