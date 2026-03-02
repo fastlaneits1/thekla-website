@@ -570,6 +570,11 @@ body {
   .menu-toggle {
     display: flex;
   }
+/* make hamburger background transparent on index button */
+.menu-toggle {
+  background: transparent;
+  border: none;
+}
 
   .nav-links {
     display: none;
