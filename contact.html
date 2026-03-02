@@ -164,7 +164,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
 /* Mobile Menu */
 const toggle = document.getElementById('menuToggle');
 const menu = document.getElementById('mobileMenu');
-
 if (toggle && menu) {
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('active');
@@ -172,7 +171,7 @@ if (toggle && menu) {
   });
 }
 
-/* Contact Form AJAX */
+/* Contact Form AJAX with Better Error Handling */
 const form = document.querySelector(".contact-form");
 const successMessage = document.getElementById("successMessage");
 const submitBtn = document.getElementById("submitBtn");
@@ -194,29 +193,35 @@ form.addEventListener("submit", async function(event) {
       headers: { 'Accept': 'application/json' }
     });
 
-    if (response.status === 200) {
+    if (response.ok) {  // Broader than === 200
+      const result = await response.json();  // Parse for details
       form.reset();
       successMessage.style.display = "block";
       successMessage.style.opacity = "0";
       successMessage.style.transition = "opacity 0.6s ease";
-      setTimeout(() => {
-        successMessage.style.opacity = "1";
-      }, 50);
-
+      setTimeout(() => { successMessage.style.opacity = "1"; }, 50);
       submitBtn.textContent = "Sent ✓";
     } else {
-      alert("Something went wrong. Please try again.");
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send Message";
+      console.error("Formspree response:", response.status, response.statusText);  // Debug
+      throw new Error(`Server error: ${response.status}`);
     }
-
   } catch (error) {
-    alert("Network error. Please try again.");
+    console.error("Form error:", error);  // Log details
+    if (confirm("AJAX failed. Submit normally? (Recommended for local testing)")) {
+      event.target.submit();  // Fallback to standard POST
+    } else {
+      alert("Error details logged to console. Common fixes: host live, activate Formspree, check fields.");
+      resetBtn();
+    }
+  }
+
+  function resetBtn() {
     submitBtn.disabled = false;
     submitBtn.textContent = "Send Message";
   }
 });
 </script>
+
 
 </body>
 </html>

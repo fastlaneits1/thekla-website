@@ -754,3 +754,12 @@ body {
     text-align: center !important;
   }
 }
+.form-success-message {
+  color: #10b981; /* Green */
+  background: #ecfdf5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
