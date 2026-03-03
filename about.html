@@ -110,7 +110,7 @@
         </div>
 
         <div class="footer-meta">
-          <p>© <span id="year"></span> THEKLA. All rights reserved.</p>
+         <p>Designed &amp; Developed by <a href="https://fast-laneits.com" target="_blank">Fastlane IT Solutions</a> © <span id="year"></span> THEKLA. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -118,17 +118,47 @@
 
   <!-- FIXED JS (same as contact) -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', function () {
+  // HAMBURGER MENU - STAYS OPEN UNTIL RECLOSE
+  const toggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if (toggle && mobileMenu) {
+    toggle.addEventListener('click', function () {
+      toggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+    
+    // REMOVE AUTO-CLOSE - LET USER CONTROL
+    // Links now don't auto-close (user clicks hamburger to close)
+    
+    // Close only on outside overlay click
+    mobileMenu.addEventListener('click', function (e) {
+      if (e.target === mobileMenu) {
+        toggle.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    });
+  }
+  
+  // SCROLL ARROW
+  const arrow = document.querySelector('.scroll-arrow');
+  if (arrow) {
+    arrow.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = arrow.getAttribute('data-scroll-target') || '#discover';
+      const target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
 
-    const toggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('mobileMenu');
-
-    if (toggle && menu) {
-      toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
-        menu.classList.toggle('active');
-      });
-    }
-  </script>
+  // FOOTER YEAR
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+});
+</script>
 </body>
 </html>

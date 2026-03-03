@@ -765,3 +765,38 @@ body {
   /*font-weight: 500;*/
 /*}*/
 
+.footer-meta p {
+  text-align: center;
+}
+.footer-meta {
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+.footer-meta p {
+  text-align: center !important;
+  margin: 0 auto !important;
+  max-width: none !important;
+}
+.footer-inner {
+  gap: 0.5rem !important; /* Reduces space between sections */
+}
+
+.footer-meta {
+  margin-top: -0.75rem !important; /* Pulls Designed line UP */
+}
+/* FOOTER LINK - ROSE GOLD */
+.footer-meta a,
+.footer-links a {
+  color: #CE893D !important;  /* Your accent color */
+  text-decoration: none;
+}
+
+.footer-meta a:hover,
+.footer-links a:hover {
+  color: #F4D03F !important;  /* Brighter hover */
+  text-decoration: underline;
+}
+
