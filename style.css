@@ -1,16 +1,16 @@
-/* ========== THEKLA JEWELRY - DARKER FULL WIDTH ========== */
+/* ========== LEJOLE JEWELRY - DARKER FULL WIDTH ========== */
 
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap");
 
 :root {
-  --bg-main: #050507;           /* DARKER BLACK */
-  --bg-body: #1a1a1c;           /* DARKER BEIGE */
-  --accent: #d98a5a;            /* DARKER GOLD */
-  --accent-soft: #4a2a1f;       /* DARKER BROWN */
-  --text-main: #f0ede9;         /* SLIGHTLY DARKER CREAM */
-  --text-muted: #b8a89a;        /* DARKER MUTED */
-  --btn-bg: #f5f2ee;            /* DARKER BUTTON */
-  --btn-text: #0f0e0d;          /* DARKER TEXT */
+  --bg-main: #fdf2f8;           /* Business Colour */
+  --bg-body: #fce7f3;           /* DARKER BEIGE */
+  --accent: #bd9eda;            /* DARKER GOLD */
+  --accent-soft: #f3a8c8;       /* DARKER BROWN */
+  --text-main: #4a1e5a;         /* SLIGHTLY DARKER CREAM */
+  --text-muted: #8b4e7a;        /* DARKER MUTED */
+  --btn-bg: #fff8f9;            /* DARKER BUTTON */
+  --btn-text: #581c87;          /* DARKER TEXT */
 }
 
 *,
@@ -215,7 +215,7 @@ body {
 
 .hero-image {
   height: 100%;
-  background-image: url("images/Thekla.jpg");
+  background-image: url("images/LEJOLE.jpg");
   background-size: cover;
   background-position: center 10%;
   clip-path: inset(100px 0 100px 100px round 0 0 0 0);
@@ -800,3 +800,33 @@ body {
   text-decoration: underline;
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 176px;
+  width: auto;
+  max-width: 140px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .brand-logo {
+    height: 28px;
+    max-width: 120px;
+  }
+}
