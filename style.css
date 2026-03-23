@@ -1,16 +1,18 @@
-/* ========== LEJOLE JEWELRY - DARKER FULL WIDTH ========== */
+/* ========== LEJOLE JEWELRY - DARKER PURPLE FULL WIDTH ========== */
 
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap");
 
 :root {
-  --bg-main: #fdf2f8;           /* Business Colour */
-  --bg-body: #fce7f3;           /* DARKER BEIGE */
-  --accent: #bd9eda;            /* DARKER GOLD */
-  --accent-soft: #f3a8c8;       /* DARKER BROWN */
-  --text-main: #4a1e5a;         /* SLIGHTLY DARKER CREAM */
-  --text-muted: #8b4e7a;        /* DARKER MUTED */
-  --btn-bg: #fff8f9;            /* DARKER BUTTON */
-  --btn-text: #581c87;          /* DARKER TEXT */
+  --bg-main: #23022E;           /* Business Colour */
+  --bg-body: #eff8e2;           /* DARKER BEIGE */
+  --accent: #b999d6;            /* DARKER GOLD */
+  --accent-soft: #ada8b6;       /* DARKER BROWN */
+  --text-main: #23022e;         /* SLIGHTLY DARKER CREAM */
+  --text-muted: #ada8b6;        /* DARKER MUTED */
+  --btn-bg: #b999d6;            /* DARKER BUTTON */
+  --btn-text: #23022e;          /* DARKER TEXT */
+  --border-subtle: #CECFC7;     /* Card borders/dividers */
+
 }
 
 *,
@@ -104,11 +106,15 @@ body {
   letter-spacing: 0.2em;
   font-weight: 400;
   padding: 8px 0;
+  background: transparent;              /* ensure no random blue bg */
+
 }
 
 .nav-links a.active,
 .nav-links a:hover {
-  color: var(--text-main);
+ color: #ffffff;                        /* clear white text */
+  background: transparent;              /* no blue box */
+  border-bottom: 2px solid var(--accent);
 }
 
 /* Mobile hamburger */
@@ -125,7 +131,7 @@ body {
 .menu-toggle span {
   width: 28px;
   height: 2.5px;
-  background: var(--text-main);
+  background: #ffffff; /* show clearly on #23022E */
   transition: 0.3s;
   border-radius: 2px;
 }
@@ -147,7 +153,7 @@ body {
 .mobile-menu {
   position: fixed;
   inset: 0;
-  background: var(--bg-main);
+  background: #23022E;         /* keep deep purple */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -173,7 +179,7 @@ body {
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  color: var(--text-main);
+  color: #ffffff;              /* force white so it stands out */
   text-decoration: none;
   padding: 16px;
 }
@@ -830,3 +836,14 @@ body {
     max-width: 120px;
   }
 }
+.brand {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.18em;
+  font-size: 20px;
+  text-decoration: none;
+  color: #ffffff;              /* force white */
+}
+.footer-logo {
+  color: #ffffff;
+}
+
